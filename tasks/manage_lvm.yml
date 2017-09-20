@@ -46,6 +46,7 @@
     vg:    '{{ item.vg }}'
     size:  '{{ item.size }}'
     force: '{{ item.force | d(omit) }}'
+    shrink: '{{ item.shrink | d(False) }}'
     state: 'present'
   with_items: '{{ lvm__logical_volumes }}'
   when: lvm__logical_volumes|d(False) and
